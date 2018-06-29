@@ -67,6 +67,5 @@ typings/
 /lib
 
 # sonar
-sonar-volumes
-.scannetwork
-coverage
+sonar-volumes/
+.scannerwork/
