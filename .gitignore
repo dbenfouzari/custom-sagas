@@ -59,3 +59,9 @@ typings/
 
 # next.js build output
 .next
+
+# Idea IDE
+.idea
+
+# build lib directory
+/lib
