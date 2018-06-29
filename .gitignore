@@ -62,3 +62,6 @@ typings/
 
 # Idea IDE
 .idea
+
+# build lib directory
+/lib

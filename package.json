@@ -5,9 +5,22 @@
   "main": "lib/index.js",
   "repository": "git@github.com:dbenfouzari/custom-sagas.git",
   "author": "Donovan BENFOUZARI <d.benfouzari@gmail.com>",
-  "license": "GNU GPLv3",
+  "license": "GPL-3.0-only",
   "private": false,
+  "scripts": {
+    "build": "tsc --emitDeclarationOnly && babel src --out-dir lib --extensions \".ts,.tsx\"",
+    "type-check": "tsc --noEmit"
+  },
   "peerDependencies": {
     "redux": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.51",
+    "@babel/core": "^7.0.0-beta.51",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.51",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.51",
+    "@babel/preset-env": "^7.0.0-beta.51",
+    "@babel/preset-typescript": "^7.0.0-beta.51",
+    "typescript": "^2.9.2"
   }
 }
