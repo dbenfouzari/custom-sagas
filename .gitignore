@@ -61,7 +61,7 @@ typings/
 .next
 
 # Idea IDE
-.idea
+.idea/
 
 # build lib directory
 /lib
