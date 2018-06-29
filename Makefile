@@ -26,7 +26,7 @@ sonarqube: ## Runs SonarQube
 sonar-scanner: sonarqube ## Runs Sonar-Scanner
 	cd $(SONAR_DIR) &&$(DOCKER_COMPOSE) up $(SONAR_SCANNER)
 
-.PHONY: modules-install install sonarqube sonar-scanner sonar-stack
+.PHONY: modules-install install sonarqube sonar-scanner
 
 .DEFAULT_GOAL := help
 help:
