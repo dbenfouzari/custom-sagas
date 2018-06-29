@@ -65,3 +65,6 @@ typings/
 
 # build lib directory
 /lib
+
+# sonar
+sonar-volumes
