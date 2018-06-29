@@ -14,6 +14,16 @@ export const createRequestTypes = (base: string): RequestTypeObject =>
     return acc;
   }, ({} as RequestTypeObject));
 
-function action(type: string, payload = {}) {
+export function action(type: string, payload = {}) {
   return {type, ...payload}
+}
+
+export const actionTypesFor = (entityType: string) => {
+  const thing = createRequestTypes(entityType);
+
+  return {
+    request: (id: string) => action(thing[REQUEST], { id }),
+    failure: (id: string, error: any) => action(thing[FAILURE], { id, error }),
+    success: (id: string, response: any) => action(thing[SUCCESS], { id, response })
+  }
 }

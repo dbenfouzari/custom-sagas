@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="/Volumes/Workspace/Personal/JS/custom-sagas/__tests__/actions.spec.ts">
-    <testCase name="createRequestTypes should return 9" duration="6"/>
-  </file>
-  <file path="/Volumes/Workspace/Personal/JS/custom-sagas/__tests__/index.spec.ts">
-    <testCase name="Square method should return 9" duration="2"/>
+    <testCase name="createRequestTypes should return 9" duration="4"/>
+    <testCase name="actions should return ok" duration="1"/>
+    <testCase name="actions should return ok without payload" duration="1"/>
+    <testCase name="actionTypesFor should return ok" duration="7"/>
   </file>
 </testExecutions>
