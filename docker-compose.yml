@@ -1,0 +1,32 @@
+version: '3'
+
+networks:
+  sonarnet:
+    driver: bridge
+
+services:
+  sonar:
+    image: sonarqube
+    ports:
+      - '9090:9000'
+    networks:
+      - sonarnet
+    volumes:
+      - ./sonar-volumes/conf:/opt/sonarqube/conf
+      - ./sonar-volumes/data:/opt/sonarqube/data
+      - ./sonar-volumes/extensions:/opt/sonarqube/extensions
+      - ./sonar-volumes/bundled-plugins:/opt/sonarqube/bundled-plugins
+
+  sonar-scanner:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.sonarscanner
+    networks:
+      - sonarnet
+    depends_on:
+      - sonar
+    environment:
+      - SONAR_HOST_URL=http://sonar:9000
+      - SONAR_PROJECT_KEY=custom-sagas
+      - SONAR_PROJECT_NAME=CustomSagas
+      - SONAR_PROJECT_VERSION=0.0.1

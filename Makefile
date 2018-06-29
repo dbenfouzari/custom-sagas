@@ -1,3 +1,9 @@
+DOCKER_COMPOSE  = docker-compose
+
+SONAR_DIR       = .
+SONARQUBE       = sonar
+SONAR_SCANNER   = sonar-scanner
+
 ##
 ## Project
 ## -------
@@ -8,7 +14,19 @@ modules-install: ## Installs project dependencies
 
 install: modules-install ## Installs the project
 
-.PHONY: modules-install install
+##
+## > Sonar
+## Used to run some stats about the project
+## -------
+##
+
+sonarqube: ## Runs SonarQube
+	cd $(SONAR_DIR) && $(DOCKER_COMPOSE) up -d $(SONARQUBE)
+
+sonar-scanner: sonarqube ## Runs Sonar-Scanner
+	cd $(SONAR_DIR) &&$(DOCKER_COMPOSE) up $(SONAR_SCANNER)
+
+.PHONY: modules-install install sonarqube sonar-scanner sonar-stack
 
 .DEFAULT_GOAL := help
 help:

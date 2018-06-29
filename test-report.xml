@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unitTest version="1">
+  <file path="/Volumes/Workspace/Personal/JS/custom-sagas/__tests__/index.spec.ts">
+    <testCase name="Square method should return 9" duration="5"/>
+    <testCase name="Square method should be ok" duration="1"/>
+  </file>
+</unitTest>
