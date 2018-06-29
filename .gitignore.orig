@@ -67,5 +67,10 @@ typings/
 /lib
 
 # sonar
+<<<<<<< HEAD
+sonar-volumes
+.scannetwork
+=======
 sonar-volumes/
 .scannerwork/
+>>>>>>> develop
