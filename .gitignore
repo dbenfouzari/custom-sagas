@@ -68,3 +68,4 @@ typings/
 
 # sonar
 sonar-volumes
+.scannetwork
