@@ -1,0 +1,13 @@
+{
+  "name": "custom-sagas",
+  "version": "0.0.1",
+  "description": "Custom sagas",
+  "main": "lib/index.js",
+  "repository": "git@github.com:dbenfouzari/custom-sagas.git",
+  "author": "Donovan BENFOUZARI <d.benfouzari@gmail.com>",
+  "license": "GNU GPLv3",
+  "private": false,
+  "peerDependencies": {
+    "redux": "^4.0.0"
+  }
+}
