@@ -1,5 +1,4 @@
 export type SquareParam = number;
 
 export const square = (n: SquareParam): number => n * n;
-
-export default square(3);
+export const nothing = () => 'coucou';
