@@ -3,5 +3,5 @@ before_script:
   - npm -v
 
 job1:
-  scripts:
+  script:
     - echo "Coucou"
