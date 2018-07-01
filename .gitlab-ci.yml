@@ -1,0 +1,7 @@
+before_script:
+  - node -v
+  - npm -v
+
+job1:
+  script:
+    - echo "Coucou"
