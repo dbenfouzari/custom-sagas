@@ -6,27 +6,30 @@ networks:
 
 services:
   sonar:
+    container_name: sonar
     image: sonarqube
     ports:
       - '9090:9000'
     networks:
       - sonarnet
+    depends_on:
+      - sonar-db
+    environment:
+      - SONARQUBE_JDBC_URL=jdbc:postgresql://sonar-db:5432/sonar
     volumes:
       - ./sonar-volumes/conf:/opt/sonarqube/conf
       - ./sonar-volumes/data:/opt/sonarqube/data
       - ./sonar-volumes/extensions:/opt/sonarqube/extensions
       - ./sonar-volumes/bundled-plugins:/opt/sonarqube/bundled-plugins
 
-  sonar-scanner:
-    build:
-      context: .
-      dockerfile: ./Dockerfile.sonarscanner
+  sonar-db:
+    container_name: sonar_db
+    image: postgres
     networks:
       - sonarnet
-    depends_on:
-      - sonar
     environment:
-      - SONAR_HOST_URL=http://sonar:9000
-      - SONAR_PROJECT_KEY=custom-sagas
-      - SONAR_PROJECT_NAME=CustomSagas
-      - SONAR_PROJECT_VERSION=0.0.1
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=sonar
+    volumes:
+      - ./sonar-volumes/postgresql:/var/lib/postgresql
+      - ./sonar-volumes/postgresql_data:/var/lib/postgresql/data

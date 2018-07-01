@@ -11,7 +11,7 @@
     "build": "tsc --emitDeclarationOnly && babel src --out-dir lib --extensions \".ts,.tsx\"",
     "type-check": "tsc --noEmit",
     "test": "jest --env=jsdom --maxWorkers=4",
-    "analyze": "yarn test --coverage; node analyze.js"
+    "analyze": "yarn test --coverage; SONAR_PORT=9090 node analyze.js"
   },
   "peerDependencies": {
     "redux": "^4.0.0"
