@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="/Volumes/Workspace/Personal/JS/custom-sagas/__tests__/actions.spec.ts">
-    <testCase name="createRequestTypes should return 9" duration="5"/>
-    <testCase name="actions should return ok" duration="1"/>
-    <testCase name="actions should return ok without payload" duration="0"/>
-    <testCase name="actionTypesFor should return ok" duration="2"/>
+    <testCase name="createRequestTypes should return 9" duration="1"/>
+    <testCase name="createRequestTypes should throw an error about no param given" duration="1"/>
+    <testCase name="actions should return ok" duration="0"/>
+    <testCase name="actions should return ok without payload" duration="1"/>
+    <testCase name="actionTypesFor should return ok" duration="1"/>
   </file>
   <file path="/Volumes/Workspace/Personal/JS/custom-sagas/__tests__/index.spec.ts">
     <testCase name="Square method should return 9" duration="1"/>

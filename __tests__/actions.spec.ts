@@ -3,29 +3,29 @@ import {action, actionTypesFor, createRequestTypes} from '../src/actions';
 describe('createRequestTypes', () => {
   it('should return 9', () => {
     expect(createRequestTypes('TEST')).toEqual({
-      'REQUEST': 'TEST_REQUEST',
-      'SUCCESS': 'TEST_SUCCESS',
-      'FAILURE': 'TEST_FAILURE',
+      'REQUEST': '@api_sagas/TEST_REQUEST',
+      'SUCCESS': '@api_sagas/TEST_SUCCESS',
+      'FAILURE': '@api_sagas/TEST_FAILURE',
     });
-
-    expect(createRequestTypes('')).toEqual({
-      'REQUEST': '_REQUEST',
-      'SUCCESS': '_SUCCESS',
-      'FAILURE': '_FAILURE',
-    })
   });
+
+  it('should throw an error about no param given', () => {
+    expect(() => {
+      createRequestTypes('')
+    }).toThrow(Error('No `base` param given'))
+  })
 });
 
 describe('actions', () => {
   it('should return ok', () => {
-    expect(action('TEST_REQUEST', { id: 123 })).toEqual({
-      type: 'TEST_REQUEST',
+    expect(action('@api_sagas/TEST_REQUEST', { id: 123 })).toEqual({
+      type: '@api_sagas/TEST_REQUEST',
       id: 123
     })
   });
   it('should return ok without payload', () => {
-    expect(action('TEST_REQUEST')).toEqual({
-      type: 'TEST_REQUEST'
+    expect(action('@api_sagas/TEST_REQUEST')).toEqual({
+      type: '@api_sagas/TEST_REQUEST'
     })
   });
 });
@@ -41,18 +41,18 @@ describe('actionTypesFor', () => {
     const myTypes = actionTypesFor('TEST');
 
     expect(myTypes.request('123')).toEqual({
-      type: 'TEST_REQUEST',
+      type: '@api_sagas/TEST_REQUEST',
       id: '123'
     });
 
     expect(myTypes.success('123', 'Coucou')).toEqual({
-      type: 'TEST_SUCCESS',
+      type: '@api_sagas/TEST_SUCCESS',
       id: '123',
       response: 'Coucou'
     });
 
     expect(myTypes.failure('123', 'You so bad')).toEqual({
-      type: 'TEST_FAILURE',
+      type: '@api_sagas/TEST_FAILURE',
       id: '123',
       error: 'You so bad'
     })

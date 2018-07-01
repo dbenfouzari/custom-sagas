@@ -4,15 +4,20 @@ interface RequestTypeObject {
   [type: string]: string;
 }
 
+const PREFIX = '@api_sagas/';
+
 const REQUEST = 'REQUEST';
 const SUCCESS = 'SUCCESS';
 const FAILURE = 'FAILURE';
 
-export const createRequestTypes = (base: string): RequestTypeObject =>
-  ([ REQUEST, SUCCESS, FAILURE ] as RequestType[]).reduce((acc, type) => {
-    acc[type] = `${base}_${type}`;
+export const createRequestTypes = (base: string): RequestTypeObject => {
+  if (!base) throw new Error('No `base` param given');
+
+  return ([ REQUEST, SUCCESS, FAILURE ] as RequestType[]).reduce((acc, type) => {
+    acc[type] = `${PREFIX}${base}_${type}`;
     return acc;
   }, ({} as RequestTypeObject));
+}
 
 export const action = (type: string, payload = {}) => ({
     type,
